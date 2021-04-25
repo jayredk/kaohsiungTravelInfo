@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="高雄旅遊網">
+  <meta property="og:description" content="JavaScript 最終作業">
+  <meta property="og:site_name" content="高雄旅遊網">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:url" content="https://jayredk.github.io/javaScriptFinal/">
+  <title>高雄旅遊網</title>
+  <link rel="shortcut icon" href="img/the-urban-landscape-1698285.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/all.min.css">
+</head>
+<body>
+  <header class="banner d-flex justify-content-center align-items-center">
+    <div>
+      <h1 class="text-white text-center mb-5">高雄旅遊資訊</h1>
+      <select id="area" class="custom-select bg-secondary dropdown-toggle text-left">
+        <option disabled class="text-center" href="#">--請選擇行政區--</option>
+        <option class="text-center" href="#">苓雅區</option>
+        <option class="text-center" href="#">三民區</option>
+        <option class="text-center" href="#">新興區</option>
+        <option class="text-center" href="#">鹽埕區</option>
+        <option class="text-center" href="#">左營區</option>
+        <option class="text-center" href="#">楠梓區</option>
+        <option class="text-center" href="#">鼓山區</option>
+        <option class="text-center" href="#">旗津區</option>
+        <option class="text-center" href="#">前鎮區</option>
+        <option class="text-center" href="#">小港區</option>
+        <option class="text-center" href="#">鳳山區</option>
+        <option class="text-center" href="#">美濃區</option>
+        <option class="text-center" href="#">旗山區</option>
+        <option class="text-center" href="#">前金區</option>
+        <option class="text-center" href="#">梓官區</option>
+        <option class="text-center" href="#">鳥松區</option>
+        <option class="text-center" href="#">路竹區</option>
+        <option class="text-center" href="#">橋頭區</option>
+        <option class="text-center" href="#">林園區</option>
+        <option class="text-center" href="#">茄萣區</option>
+      </select>
+    </div>
+  </header>
+
+  <main>
+    <div class="topZone bg-white shadow p-4 mb-4">
+      <h4 class="mb-3">熱門行政區</h4>
+      <div id="popularArea" class="d-flex justify-content-around">
+        <button type="button" class="btn btn-primary btn-lg px-5">苓雅區</button>
+        <button type="button" class="btn btn-info btn-lg px-5">三民區</button>
+        <button type="button" class="btn btn-success btn-lg px-5">新興區</button>
+        <button type="button" class="btn btn-danger text-white btn-lg px-5">鹽埕區</button>
+      </div>
+    </div>
+    <div class="customBorder text-center">
+      <i class="fas fa-chevron-circle-down"></i>
+    </div>
+    <div class="container">
+      <h2 class="areaName text-center mb-5"></h2>
+      <ul class="list row list-unstyled">
+        <!-- <li class="col-6">
+          <div class="card">
+            <div class="d-flex justify-content-between align-items-end p-3 pt-5">
+              <h3 class="mb-0">123</h3>
+              <span>123</span>
+            </div>
+            <ul class="card-body d-flex justify-content-between list-unstyled">
+              <li>
+                <p><i class="fas fa-clock mr-2"></i>123</p>
+                <p><i class="fas fa-map-marker-alt mr-2"></i>123</p>
+                <p><i class="fas fa-mobile-alt mr-2"></i>123</p>
+              </li>
+              <div class="d-flex align-items-end">
+                <p><i class="fas fa-tags"></i>123</p>
+              </div>
+            </ul>
+          </div>
+        </li> -->
+      </ul>
+    </div>
+    <nav class="d-flex justify-content-center">
+      <ul class="pagination">
+        <!-- <li class="page-item"><a class="page-link border-0" href="#">prev</a></li>
+        <li class="page-item"><a class="page-link border-0" href="#">1</a></li>
+        <li class="page-item"><a class="page-link border-0" href="#">2</a></li>
+        <li class="page-item"><a class="page-link border-0" href="#">3</a></li>
+        <li class="page-item"><a class="page-link border-0" href="#">next</a></li> -->
+      </ul>
+    </nav>
+  </main>
+
+  <footer class="bg-primary text-center py-5">
+    <h5 class="text-white mb-3">高雄旅遊網</h5>
+    <p class="text-warning mb-0">資料來源：<a class="text-warning text-decoration-none" href="https://data.kcg.gov.tw/" target="_blank" rel="noopener noreferrer">高雄市政府</a></p>
+    <div class="goTop">
+      <a href="#"><img src="img/btn_goTop.png" alt=""></a>
+    </div>
+  </footer>
+  
+  <script src="js/jquery-3.5.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  <script src="js/all.js"></script>
+</body>
+</html>
