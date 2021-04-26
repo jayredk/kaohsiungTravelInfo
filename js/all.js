@@ -52,13 +52,32 @@ function listRender(i, j) {
 
 function paginationRender(currentPage) {
   let pageTotal = Math.ceil(maxData / 10);
+  let lowerPage;
+  let upperPage;
   let str = '';
-  
   if (currentPage > 1) {
     str += `<li class="page-item"><a class="page-link border-0" href="#">< prev</a></li>`;
   }
+  // 畫面限制顯示 10 頁，超過 10 頁爲一種顯示方式，其餘爲一種
+  if (pageTotal >= 10) {
+    if (currentPage > 5) {
+      if ((currentPage + 5) < pageTotal) {
+        lowerPage = currentPage - 5;
+      upperPage = currentPage + 4;
+      } else {
+        lowerPage = pageTotal - 9;
+        upperPage = pageTotal;
+      }
+    } else {
+    lowerPage = 1;
+    upperPage = 10;
+    }
+  } else {
+    lowerPage = 1;
+    upperPage = pageTotal;
+  }
 
-  for(let i = (pageTotal - currentPage > 10) ? currentPage : pageTotal - 10; i < Math.min(currentPage + 10, pageTotal); i++) {
+  for(let i = lowerPage; i <= upperPage; i++) {
     if (i == currentPage) {
       str += `<li class="page-item active"><a class="page-link border-0" href="#">${i}</a></li>`;
     }else {
@@ -73,13 +92,10 @@ function paginationRender(currentPage) {
 }
 
 function pageFilter(pageNum) {
-  let i;
-  let j;
+  let i;    //從第幾筆資料開始
+  let j;    //到第幾筆資料結束
 
   if (!isNaN(pageNum)) {
-    // console.log(currentPage);
-    // console.log(currentPage == pageNum);
-    // if (currentPage == pageNum) {return;}
     currentPage = Number(pageNum);
     i = currentPage * 10 - 10;
     j = currentPage * 10 - 1;
