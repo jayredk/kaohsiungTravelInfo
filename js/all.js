@@ -9,19 +9,12 @@ let maxData;
 let currentPage;
 
 function init() {
-  let xhr = new XMLHttpRequest;
-  xhr.onreadystatechange = () => {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      let i = JSON.parse(xhr.responseText);
-      let opiData = i.data.XML_Head.Infos.Info;
-      data = opiData.slice(0);
-      getList();
-    }
-  }
-
-  xhr.open('GET', 'https://api.kcg.gov.tw/api/service/get/9c8e1450-e833-499c-8320-29b36b7ace5c', true);
-
-  xhr.send();
+  fetch('https://api.kcg.gov.tw/api/service/get/9c8e1450-e833-499c-8320-29b36b7ace5c')
+  .then(res => res.json())
+  .then(opidata => {
+    data = opidata.data.XML_Head.Infos.Info;
+    getList();
+  });
 }
 
 
