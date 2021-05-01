@@ -1,7 +1,7 @@
 const area = document.getElementById('area');
-const areaName = document.querySelector('.areaName');
+const areaName = document.getElementById('areaName');
 const pupularArea = document.getElementById('popularArea');
-const list = document.querySelector('.list');
+const list = document.getElementById('list');
 const page = document.querySelector('.pagination');
 let data = [];
 let areaDataRecords = [];
@@ -137,18 +137,25 @@ function getList(select = "高雄市") {
 
 init();
 
-area.addEventListener('change', (e) => {
+area.addEventListener('change', e => {
   let select = e.target.value;
   getList(select);
 }, false);
 
-popularArea.addEventListener('click', (e) => {
+popularArea.addEventListener('click', e => {
   let select = e.target.textContent;
+  let option = document.querySelectorAll('option');
   if (e.target.nodeName === "DIV") {return;}
+  for(let i = 0; i < option.length; i++) {
+    if (option[i].textContent === select) {
+      option[i].selected = true;
+      break;
+    }
+  }
   getList(select);
 }, false);
 
-page.addEventListener('click', (e) => {
+page.addEventListener('click', e => {
   e.preventDefault();
   let pageNum = e.target.textContent;
   pageFilter(pageNum);
